@@ -152,9 +152,167 @@ echo '<br>';
 echo strip_tags("<h3>Hello <b>Elzero</b></h3>");
 echo '<br>';
 
-echo strip_tags("<h3>Hello <b>Elzero</b></h3>", "<h3><b>");
+echo strip_tags("<h3>Hello <b>Elzero</b></h3>", "<b>");
 echo '<br>';
 
 echo nl2br("Elzero\nWeb\nSchool", false);
+
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo '<br>';
+?>
+<?php
+
+// 57
+
+/*
+  String Functions
+  - strpos(String[Required], Value[Required], Start Position[Optional]) Case-Sensitive
+  - strrpos(String[Required], Value[Required], Start Position[Optional]) Case-Sensitive
+  - stripos(String[Required], Value[Required], Start Position[Optional]) Case-Insensitive
+  - strripos(String[Required], Value[Required], Start Position[Optional]) Case-Insensitive
+  - substr_count(String[Required], Value[Required], Start Position[Optional], Length[Optional])
+*/
+echo(strpos("Hello Hello", "h")); // False
+echo '<br>';
+echo (strpos("Hello Hello", "H")); // 0
+echo '<br>';
+var_dump(strpos("Hello Hello", "H")); // 0
+echo '<br>';
+var_dump(strpos("Hello Hello", "H", 3)); // 6
+echo '<br>';
+var_dump(strpos("Hello Hello", "H", 6)); // 6
+echo '<br>';
+var_dump(strpos("Hello Hello", "h")); // False
+echo '<br>';
+var_dump(strpos("Hello Hello", "H", -2)); // False
+echo '<br>';
+var_dump(strpos("Hello Hello", "H", -5)); // 6
+echo '<br>';
+var_dump(strpos("Hello Hello", "H", -11)); // 0
+echo '<br>';
+var_dump(strrpos("Hello Hello", "H")); // 6
+echo '<br>';
+var_dump(strrpos("Hello Hello", "H", 5)); // 6
+echo '<br>';
+var_dump(stripos("Hello Hello", "h")); // 0
+echo '<br>';
+var_dump(strripos("Hello Hello", "h")); // 6
+echo '<br>';
+var_dump(substr_count("Hello Hello", "He")); // 2
+echo '<br>';
+var_dump(substr_count("Hello Hello", "He", 1)); // 1
+echo '<br>';
+var_dump(substr_count("Hello Hello", "He", 1, 6)); // 0
+echo '<br>';
+var_dump(substr_count("abcdabcda", "abcda")); // 1
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo '<br>';
+?>
+
+<?php
+
+//58 
+
+  /*
+    String Functions
+    - parse_str(String[Required], Array[Required])
+    - quotemeta(String[Required])
+    - str_pad(String[Required], Length[Required], String[Optional], Pad Flag[Optional])
+    --- STR_PAD_BOTH
+    --- STR_PAD_LEFT
+    --- STR_PAD_RIGHT
+    - strtr(String[Required], From[Required], To[Required]) || strtr(String[Required], Array[Required])
+  */
+
+  parse_str("name=Osama&email=o@nn.sa&os=mac", $query);
+
+  echo '<pre>';
+  print_r($query);
+  echo '</pre>';
+
+  echo $query["name"] . "<br>";
+  echo $query["email"] . "<br>";
+  echo $query["os"] . "<br>";
+
+  echo "Hello [] () * + . <br>";
+  echo quotemeta("Hello [] () * + . <br>");
+
+  echo str_pad("12", 8, 0, STR_PAD_BOTH) . "<br>";
+  echo str_pad("321", 8, 0, STR_PAD_BOTH) . "<br>";
+  echo str_pad("1313", 8, 0, STR_PAD_LEFT) . "<br>";
+  echo str_pad("15435", 8, 0, STR_PAD_LEFT) . "<br>";
+  echo str_pad("500432", 8, 0, STR_PAD_LEFT) . "<br>";
+
+  echo strtr("E@zero Web Schoo@", "@", "l");
+
+  echo "<br>";
+
+  $translation = ["@" => "l", "#" => "o"];
+
+  echo strtr("E@zer# Web Sch##@", $translation);
+
+  echo '<br>';
+  echo '<br>';
+  echo '<br>';
+  echo '<br>';
+
+  ?>
+  <?php
+
+// 59
+
+/*
+  String Functions
+  - str_replace(Find[Required], Replace With[Required], Data[Required], Replace Count[Optional])
+  --- Its Case-Sensitive
+  - str_ireplace(Find[Required], Replace With[Required], Data[Required], Replace Count[Optional])
+*/
+
+echo str_replace("@", "o", "Elzer@ Web Sch@@l", $r); // Elzero Web School
+echo '<br>';
+echo "Replaces Count Is $r"; // 3
+echo '<br>';
+echo str_replace(["#", "@"], "A", "E#zer@ Web Sch@@#"); // EAzerA Web SchAAA
+echo '<br>';
+echo str_replace(["#", "@"], ["l", "o"], "E#zer@ Web Sch@@#"); // Elzero Web School
+
+echo '<pre>';
+print_r(str_replace("One", 1, ["One", "Two", "Three", "One", "One"]));
+echo '</pre>';
+
+echo '<pre>';
+print_r(str_replace(["One", "Two"], [1, 2], ["One", "Two", "Three", "One", "One"]));
+echo '</pre>';
+
+echo '<pre>';
+print_r(str_replace(["One", "Two", "Three"], [1, 2], ["One", "Two", "Three", "One", "One"]));
+echo '</pre>';
+
+echo '<pre>';
+print_r(str_ireplace(["one", "two"], [1, 2], ["One", "Two", "Three", "One", "One"]));
+echo '</pre>';
+
+echo '<br>';
+echo str_replace("s","m","sohassad",$x);
+echo '<br>';
+echo $x;
+echo '<br>';
+
+echo '<pre>';
+print_r (str_replace([10,20,30,40,50],['one','two','three','four','five'],[10,20,30,40,50],$x));
+echo '<br>';
+echo $x;
+echo '</pre>';
+
+
+
+echo '<br>';
+echo '<br>';
+echo '<br>';
+echo '<br>';
 
 ?>

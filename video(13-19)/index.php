@@ -129,11 +129,11 @@ echo '<br>';
 // print_r($_SERVER);
 // echo $_SERVER["HTTP_CONNECTION"];
 // echo '</pre>';
-
+if ($_SERVER["REQUEST_METHOD"]=="POST"){
 echo $_POST["username"];
 echo '<br>';
 echo $_POST["number"];
-
+}
 ?>
 
 <form action="" method="post">

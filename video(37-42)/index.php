@@ -375,18 +375,18 @@ echo '<br>';
 echo '<br>';
 echo '<br>';
 
-// $start = 0;
-// $mix = [1, 2, 3, "A", "B", "C", 4];
+$start = 0;
+$mix = [1, 2, 3, "A", "B", "C", 4];
 
-// for($start=0;$start<count($mix);$start++){
-//   if (gettype($mix[$start])==gettype(1)){
-//     if ($mix[$start] == 1){
-//       continue;
-//     }
-//     echo "$mix[$start] <br>";
-//   }
-// }                                                                                                                                                                 count($mix); $start++){
-  
+for($start=0;$start<count($mix);$start++){
+  if (gettype($mix[$start])==gettype(1)){
+    if ($mix[$start] == 1){
+      continue;
+    }
+    echo "$mix[$start] <br>";
+  }
+}                                                                                                                                                               
+ 
 
 // Output
 // 2
@@ -416,7 +416,20 @@ echo '<br>';
 echo '<br>';
 echo '<br>';
 $mix = [1, 2, "A", "B", "C", 3, 4];
-
+$num=0;
+$str=0;
+for ($i = 0 ; $i < count($mix);$i++){
+  if (gettype($mix[$i])==gettype(1)){
+echo $mix[$i];
+echo '<br>';
+$num+=1;
+  }else{
+    $str+=1;
+  }
+}
+echo "$num Numbers Printed";
+echo '<br>';
+echo "$str Letters Ignored";
 // Output
 // 1
 // 2
